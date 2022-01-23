@@ -1,55 +1,62 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <title>NIX Education</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" media="all" href="css/bootstrap.css" />
-    <link rel="stylesheet" media="all" href="css/main.css" />
-</head>
-<body>
-<header class="pb-2">
-    <nav class="navbar bg-dark navbar-dark navbar-expand-md">
-        <div class="container">
-            <a class="navbar-brand my-3" href="index.php">NIX Education</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#toggleNav" aria-controls="toggleNav" aria-expanded="false" aria-label="Toggle nav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="toggleNav">
-                <div class="navbar-nav ms-lg-5 ms-md-5">
-                    <div class="dropdown">
-                        <a class="nav-item nav-link dropdown-toggle" data-bs-toggle="dropdown"
-                           id="beginnerDropdown" aria-haspopup="true" aria-expanded="false" href="#">Beginner</a>
-                        <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="beginnerDropdown">
-                            <a class="dropdown-item" href="lesson1.php">Lesson 1</a>
-                            <a class="dropdown-item" href="lesson2.php">Lesson 2</a>
-                            <a class="dropdown-item" href="lesson3.php">Lesson 3</a>
-                        </div>
-                    </div>
-                    <a class="nav-item nav-link dropdown-divider"></a>
-                </div>
-                <div class="navbar-nav ms-auto">
-                <a class="nav-item nav-link" href="profile.php">Hi!</a>
-                    <a class="nav-item nav-link" href="login.php">Login</a>
-                    <a class="nav-item nav-link" href="register.php">Register</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-</header>
+<?php require_once 'inc/header.php'; ?>
+
 <div class="container">
 
 <div>
     <h1>Hello, NIX Education! This is Buggy!</h1>
+    <h1>Posts</h1>
+    <table class="table table-hover table-sm">
+        <tr class="table-primary">
+            <th>Title</th>
+            <th>Description</th>
+            <th>Author</th>
+            <th>Created at</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr class="table-light">
+            <td><h5>LSB</h5></td>
+            <td>Works.</td>
+            <td>Buggy</td>
+            <td>21:48:19 24-08-2021</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr class="table-light">
+            <td><h5>Bugs and Features</h5></td>
+            <td>Sometimes bugs can become features!</td>
+            <td>Buggy</td>
+            <td>13:48:04 24-08-2021</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr class="table-light">
+            <td><h5>&lt;script&gt;alert (&#039;hi hacker&#039;); &lt;/script&gt;</h5></td>
+            <td>&lt;script&gt;alert (&#039;hi hacker&#039;); &lt;/script&gt;</td>
+            <td>Buggy</td>
+            <td>23:19:29 23-08-2021</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr class="table-light">
+            <td><h5>New page</h5></td>
+            <td>After saving goes to show page</td>
+            <td>admin</td>
+            <td>15:03:35 03-08-2021</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr class="table-light">
+            <td><h5>Ajax oh no</h5></td>
+            <td>Don&#039;t know how to implement ajax requests. Impo</td>
+            <td>admin</td>
+            <td>15:00:44 03-08-2021</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
 </div>
 
 </div>
-<footer class="bg-dark mt-3 py-2" style="color: white; text-align: center">
-    &copy; <?php echo date('Y'); ?> <h6><a style="color: white" href="index.php">NIX Education</a></h6>
-</footer>
-<script src="js/bootstrap.bundle.js"></script>
-<script src="js/jquery.js"></script>
-<script src="js/jquery.validate.js"></script>
-<script src="js/form.js"></script>
-</body>
-</html>
+
+<?php require_once 'inc/footer.php'; ?>
