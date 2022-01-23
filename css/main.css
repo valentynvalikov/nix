@@ -1,0 +1,15 @@
+.mult-table {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 564px;
+    margin: 0 auto;
+    padding: 1px;
+    border: 1px solid black;
+}
+
+.mult-table-col {
+    width: 110px;
+    margin: 1px auto;
+    padding: 5px;
+    border: 1px solid black;
+}
