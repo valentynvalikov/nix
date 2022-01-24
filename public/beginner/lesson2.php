@@ -1,7 +1,8 @@
-<?php require_once 'inc/header.php'; ?>
+<?php require_once '../../app/config/config.php'; ?>
+<?php require APPROOT . '/views/inc/header.php'; ?>
+<?php error_reporting(E_ERROR | E_PARSE | E_NOTICE); ?>
 
 <div class="container">
-<?php error_reporting(E_ERROR | E_PARSE | E_NOTICE); ?>
 <div class="mult-table">
 <?php
 for ($i = 1; $i <= 10; $i++) :
@@ -150,4 +151,4 @@ endfor;
 </div>
 </div>
 
-<?php require_once 'inc/footer.php'; ?>
+<?php require APPROOT . '/views/inc/footer.php'; ?>

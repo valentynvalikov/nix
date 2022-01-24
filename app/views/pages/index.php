@@ -1,6 +1,5 @@
-<?php require_once 'inc/header.php'; ?>
-<?php include 'posts.php'; ?>
-<div class="container">
+<?php require_once APPROOT . '/views/inc/header.php'; ?>
+<?php include APPROOT . '/models/Post.php'; ?>
 
 <div>
     <h1>Hello, NIX Education! This is Buggy!</h1>
@@ -23,6 +22,4 @@
     </table>
 </div>
 
-</div>
-
-<?php require_once 'inc/footer.php'; ?>
+<?php require_once APPROOT . '/views/inc/footer.php'; ?>

@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/nix.iml" filepath="$PROJECT_DIR$/.idea/nix.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../traversymvc/.idea/traversymvc.iml" filepath="$PROJECT_DIR$/../traversymvc/.idea/traversymvc.iml" />
     </modules>
   </component>
 </project>

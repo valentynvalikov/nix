@@ -1,4 +1,5 @@
-<?php require_once 'inc/header.php'; ?>
+<?php require_once '../app/config/config.php'; ?>
+<?php require_once APPROOT . '/views/inc/header.php'; ?>
 
 <div class="container">
 
@@ -25,4 +26,4 @@
 
 </div>
 
-<?php require_once 'inc/footer.php'; ?>
+<?php require_once APPROOT . '/views/inc/footer.php'; ?>
