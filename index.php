@@ -1,5 +1,5 @@
 <?php require_once 'inc/header.php'; ?>
-<?php require_once 'posts.php'; ?>
+<?php include 'posts.php'; ?>
 <div class="container">
 
 <div>
@@ -11,8 +11,6 @@
             <th>Description</th>
             <th>Author</th>
             <th>Created at</th>
-            <th></th>
-            <th></th>
         </tr>
         <?php foreach ($posts as $post) : ?>
             <tr class="table-light">
