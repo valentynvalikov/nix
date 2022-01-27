@@ -19,9 +19,13 @@
                 <a class="nav-item nav-link dropdown-divider"></a>
             </div>
             <div class="navbar-nav ms-auto">
-                <a class="nav-item nav-link" href="<?php echo URLROOT; ?>/profile.php">Hi!</a>
-                <a class="nav-item nav-link" href="<?php echo URLROOT; ?>/login.php">Login</a>
-                <a class="nav-item nav-link" href="<?php echo URLROOT; ?>/register.php">Register</a>
+                <?php if (isset($_SESSION['user_id'])) : ?>
+                    <a class="nav-item nav-link" href="<?php echo URLROOT; ?>/users/profile">Hi, <?php echo $_SESSION['user_name']; ?>!</a>
+                    <a class="nav-item nav-link" href="<?php echo URLROOT; ?>/users/logout">Logout</a>
+                <?php else : ?>
+                    <a class="nav-item nav-link" href="<?php echo URLROOT; ?>/users/login">Login</a>
+                    <a class="nav-item nav-link" href="<?php echo URLROOT; ?>/users/register">Register</a>
+                <?php endif; ?>
             </div>
         </div>
     </div>

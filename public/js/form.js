@@ -1,5 +1,5 @@
 //validations //валидация
-
+/*
 $(document).ready(function () {
     $('form[id="new_ad"]').validate({
         rules: {
@@ -35,13 +35,16 @@ $(document).ready(function () {
         rules: {
             username: { required: true, minlength: 5,
             },
-            password: { required: true, minlength: 8,
+            email: { required: true, email: true,
+            },
+            password: { required: true, minlength: 6,
             },
             confirm_password: { equalTo: "#password",
             }
         },
         messages: {
             username: 'Username must be at least 5 characters long',
+            email: 'Please, enter correct email address',
             password: 'Password must be at least 8 characters long',
             confirm_password: 'Passwords does not match',
         },
@@ -57,13 +60,13 @@ $(document).ready(function () {
     });
     $('form[id="login"]').validate({
         rules: {
-            username: { required: true, minlength: 5,
+            email: { required: true, email: true,
             },
-            password: { required: true, minlength: 8,
+            password: { required: true, minlength: 6,
             }
         },
         messages: {
-            username: 'Username must be at least 5 characters long',
+            email: 'Please, enter your email address',
             password: 'Password must be at least 8 characters long',
         },
 
@@ -126,3 +129,4 @@ $(document).ready(function () {
         });
     });
 });
+*/

@@ -10,7 +10,7 @@
         $posts = $this->postModel->getPosts();
 
         $data = [
-            'title' => 'Hello, NIX Education! This is Buggy!',
+            'title' => 'Posts',
             'posts' => $posts
         ];
 
