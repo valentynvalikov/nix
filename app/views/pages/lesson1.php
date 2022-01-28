@@ -1,7 +1,5 @@
-<?php require_once '../../app/config/config.php'; ?>
 <?php require_once APPROOT . '/views/inc/header.php'; ?>
 
-<div class="container">
 <div class="mult-table">
 <?php
 for ($i = 1; $i <= 10; $i++) :
@@ -14,7 +12,6 @@ for ($i = 1; $i <= 10; $i++) :
     echo "</div> \n";
 endfor;
 ?>
-</div>
 </div>
 
 <?php require APPROOT . '/views/inc/footer.php'; ?>

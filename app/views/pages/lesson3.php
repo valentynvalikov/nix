@@ -1,7 +1,5 @@
-<?php require_once '../../app/config/config.php'; ?>
 <?php require_once APPROOT . '/views/inc/header.php'; ?>
 
-<div class="container">
 <?php
 if (isset($_POST['text'])) {
     $text = $_POST['text'];
@@ -14,7 +12,7 @@ if (!empty($text)) {
     echo "<h2 class=\"px-3\">You have typed: $text - in reverse!</h2>";
 }
 ?>
-<form id="text" action="lesson3.php" method="post">
+<form id="text" action="<?php echo URLROOT . '/pages/lesson/3'; ?>" method="post">
      <fieldset class="form-group">
           <div class="form-group row">
               <div class="col-9">
@@ -26,7 +24,5 @@ if (!empty($text)) {
           </div>
       </fieldset>
 </form>
-
-</div>
 
 <?php require APPROOT . '/views/inc/footer.php'; ?>

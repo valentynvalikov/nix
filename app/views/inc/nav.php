@@ -11,9 +11,9 @@
                     <a class="nav-item nav-link dropdown-toggle" data-bs-toggle="dropdown"
                        id="beginnerDropdown" aria-haspopup="true" aria-expanded="false" href="#">Beginner</a>
                     <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="beginnerDropdown">
-                        <a class="dropdown-item" href="<?php echo URLROOT; ?>/beginner/lesson1.php">Lesson 1</a>
-                        <a class="dropdown-item" href="<?php echo URLROOT; ?>/beginner/lesson2.php">Lesson 2</a>
-                        <a class="dropdown-item" href="<?php echo URLROOT; ?>/beginner/lesson3.php">Lesson 3</a>
+                        <a class="dropdown-item" href="<?php echo URLROOT; ?>/pages/lesson/1">Lesson 1</a>
+                        <a class="dropdown-item" href="<?php echo URLROOT; ?>/pages/lesson/2">Lesson 2</a>
+                        <a class="dropdown-item" href="<?php echo URLROOT; ?>/pages/lesson/3">Lesson 3</a>
                     </div>
                 </div>
                 <a class="nav-item nav-link dropdown-divider"></a>

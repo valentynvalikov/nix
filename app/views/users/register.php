@@ -1,7 +1,7 @@
 <?php require_once APPROOT . '/views/inc/header.php'; ?>
 <div class="row">
     <div class="col-md-8 mx-auto">
-        <div class="card card-body bg-light mt-2">
+        <div class="card card-body bg-light my-2">
             <div class="text-center">
                 <h2><strong>Hello, new Creator!!! <br> Feel free to register your account!</strong></h2>
                 <div class="alert alert-danger">

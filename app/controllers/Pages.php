@@ -24,4 +24,12 @@
         ];
         $this->view('pages/about', $data);
     }
+
+    public function lesson($id)
+    {
+//        $data = [
+//            'lesson' . $id => 'Beginner'
+//        ];
+        $this->view('pages/lesson' . $id, $data);
+    }
 }
