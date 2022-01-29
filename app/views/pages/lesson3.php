@@ -14,8 +14,8 @@ if (!empty($text)) {
 ?>
 <form id="text" action="<?php echo URLROOT . '/pages/lesson/3'; ?>" method="post">
      <fieldset class="form-group">
-          <div class="form-group row">
-              <div class="col-9">
+          <div class="form-group row mx-auto">
+              <div class="col-8">
                     <input class="form-control my-3 p-3" type="text" name="text" placeholder="Type your text here" />
               </div>
               <div class="col-1">

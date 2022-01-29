@@ -1,6 +1,6 @@
 </div>
 
-<footer class="bg-dark mt-auto py-2" style="color: white; text-align: center">
+<footer class="bg-dark mt-2 py-2" style="color: white; text-align: center">
     &copy; <?php echo date('Y'); ?> <h6><a style="color: white" href="<?php echo URLROOT; ?>">NIX Education</a></h6>
 </footer>
 <script src="<?php echo URLROOT; ?>/js/bootstrap.bundle.js"></script>

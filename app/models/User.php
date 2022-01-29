@@ -8,6 +8,25 @@ class User
         $this->db = new Database;
     }
 
+    // Profile update/Обновление профиля
+    public function profile($data)
+    {
+        $this->db->query('UPDATE users SET username = :username, email = :email, password = :password WHERE id = :id');
+
+        // Bind values/Привязка значений
+        $this->db->bind(':id', $data['id']);
+        $this->db->bind(':username', $data['username']);
+        $this->db->bind(':email', $data['email']);
+        $this->db->bind(':password', $data['password']);
+
+        // Execute/Выполнение
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     // Register user/Регистрация пользователя
     public function register($data)
     {
@@ -49,6 +68,24 @@ class User
 
         // Bind value/Привязка значения
         $this->db->bind(':email', $email);
+
+        $row = $this->db->single();
+
+        // Check row/Проверяем строку
+        if ($this->db->rowCount() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    // Find user by username/Находим пользователя по нику
+    public function findUserByName($username)
+    {
+        $this->db->query('SELECT * FROM users WHERE username = :username');
+
+        // Bind value/Привязка значения
+        $this->db->bind(':username', $username);
 
         $row = $this->db->single();
 

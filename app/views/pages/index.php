@@ -1,6 +1,7 @@
 <?php require_once APPROOT . '/views/inc/header.php'; ?>
 
 <div>
+    <span class="text-center"><?php flash('success'); ?></span>
     <h1>Posts</h1>
     <table class="table table-hover table-sm">
         <tr class="table-primary">
