@@ -2,26 +2,15 @@
 {
     public function __construct()
     {
-        $this->postModel = $this->model('Post');
+        $this->pageModel = $this->model('Page');
     }
 
-    public function index()
+    public function lesson($id)
     {
-        $posts = $this->postModel->getPosts();
+        $page = $this->pageModel->getPageById($id);
 
-        $data = [
-            'title' => 'Hello, NIX Education! This is Buggy!',
-            'posts' => $posts
-        ];
+        $data = ['page' => $page];
 
-        $this->view('pages/index', $data);
-    }
-
-    public function about()
-    {
-        $data = [
-            'title' => 'About'
-        ];
-        $this->view('pages/about', $data);
+        $this->view('pages/lesson', $data);
     }
 }

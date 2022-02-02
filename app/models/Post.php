@@ -10,7 +10,7 @@ class Post
 
     public function getPosts()
     {
-        $this->db->query("SELECT * FROM posts");
+        $this->db->query("SELECT * FROM posts ORDER by created_at DESC");
 
         return $this->db->resultSet();
     }

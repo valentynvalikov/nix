@@ -9,7 +9,7 @@ error_reporting(E_ERROR | E_PARSE | E_NOTICE);
 
 class Core
 {
-    protected $currentController = 'Pages';
+    protected $currentController = 'Posts';
     protected $currentMethod = 'index';
     protected $params = [];
 
@@ -40,6 +40,8 @@ class Core
                 $this->currentMethod = $url[1];
                 // Unset 1 index/Убираем индекс 1 в массиве
                 unset($url[1]);
+            } else {
+                redirect('');
             }
         }
 
