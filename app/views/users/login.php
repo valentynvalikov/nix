@@ -1,4 +1,8 @@
 <?php require_once APPROOT . '/views/inc/header.php'; ?>
+<?php if (Users::isLoggedIn()) {
+    redirect('users/profile');
+}
+?>
 <div class="row">
     <div class="col-md-8 mx-auto">
         <div class="card card-body bg-light mt-2">
@@ -6,12 +10,12 @@
                 <?php flash('success'); ?>
                 <h2><strong>Hello, Creator!!! <br> Feel free to login!</strong></h2>
             </div>
-            <form id="login" action="<?php echo URLROOT; ?>/users/login" method="post">
+            <form action="<?php echo URLROOT; ?>/users/login" method="post">
                 <div class="form-group pb-3">
-                    <label for="email"><strong>Email: <sup>*</sup></strong></label>
-                    <input type="email" name="email" class="form-control form-control-lg"
-                           value="<?php echo $data['email']; ?>">
-                    <span class="text-white bg-danger"><?php echo $data['email_err']; ?></span>
+                    <label for="username"><strong>Username: <sup>*</sup></strong></label>
+                    <input type="text" name="username" class="form-control form-control-lg"
+                           value="<?php echo $data['username']; ?>">
+                    <span class="text-white bg-danger"><?php echo $data['username_err']; ?></span>
                 </div>
                 <div class="form-group pb-3">
                     <label for="password"><strong>Password: <sup>*</sup></strong></label>

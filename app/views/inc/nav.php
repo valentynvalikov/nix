@@ -7,6 +7,9 @@
         </button>
         <div class="collapse navbar-collapse" id="toggleNav">
             <div class="navbar-nav ms-lg-5 ms-md-5">
+                <a class="nav-item nav-link" href="<?php echo URLROOT; ?>">Home</a>
+            </div>
+            <div class="navbar-nav">
                 <div class="dropdown">
                     <a class="nav-item nav-link dropdown-toggle" data-bs-toggle="dropdown"
                        id="beginnerDropdown" aria-haspopup="true" aria-expanded="false" href="#">Beginner</a>
@@ -18,10 +21,15 @@
                 </div>
                 <a class="nav-item nav-link dropdown-divider"></a>
             </div>
-            <div class="navbar-nav ms-auto">
+            <div class="navbar-nav ms-auto my-auto">
                 <?php if (isset($_SESSION['user_id'])) : ?>
-                    <a class="nav-item nav-link" href="<?php echo URLROOT; ?>/users/profile">Hi, <?php echo $_SESSION['user_name']; ?>!</a>
-                    <a class="nav-item nav-link" href="<?php echo URLROOT; ?>/users/logout">Logout</a>
+                    <a class="nav-item nav-link my-auto" href="<?php echo URLROOT; ?>/users/profile">
+                        <img class="rounded" src="<?php if (!empty($_SESSION['user_avatar'])) {
+                                                            echo URLROOT . '/public/img/' . $_SESSION['user_avatar'];
+                                                  }; ?>" height="50px">
+                        Hi, <?php echo $_SESSION['user_name']; ?>!</a>
+                    <a style="margin-top: 11px" class="nav-item nav-link"
+                       href="<?php echo URLROOT; ?>/users/logout">Logout</a>
                 <?php else : ?>
                     <a class="nav-item nav-link" href="<?php echo URLROOT; ?>/users/login">Login</a>
                     <a class="nav-item nav-link" href="<?php echo URLROOT; ?>/users/register">Register</a>

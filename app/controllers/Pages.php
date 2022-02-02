@@ -2,26 +2,15 @@
 {
     public function __construct()
     {
-        $this->postModel = $this->model('Post');
-    }
-
-    public function index()
-    {
-        $posts = $this->postModel->getPosts();
-
-        $data = [
-            'title' => 'Posts',
-            'posts' => $posts
-        ];
-
-        $this->view('pages/index', $data);
+        $this->pageModel = $this->model('Page');
     }
 
     public function lesson($id)
     {
-//        $data = [
-//            'lesson' . $id => 'Beginner'
-//        ];
-        $this->view('pages/lesson' . $id, $data);
+        $page = $this->pageModel->getPageById($id);
+
+        $data = ['page' => $page];
+
+        $this->view('pages/lesson', $data);
     }
 }

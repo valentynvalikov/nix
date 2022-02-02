@@ -16,15 +16,14 @@ class Controller
         return new $model();
     }
 
-    // Load view/Загрузка отображерния (вида)
+    // Load view/Загрузка отображения (вида)
     public function view($view, $data = [])
     {
         // Check for view file/Проверяем, есть ли файл отображения (вида)
         if (file_exists('../app/views/' . $view . '.php')) {
             require_once '../app/views/' . $view . '.php';
         } else {
-            // View does not exist/Файла отображения (вида) нету
-            die('Не найден файл отображения!');
+            redirect('');
         }
     }
 }

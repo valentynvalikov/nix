@@ -11,13 +11,37 @@ class User
     // Profile update/Обновление профиля
     public function profile($data)
     {
-        $this->db->query('UPDATE users SET username = :username, email = :email, password = :password WHERE id = :id');
+        $sql = 'UPDATE users SET ';
+        if (!empty($data['username'])) {
+            $sql .= 'username = :username';
+        }
+        if (!empty($data['email'])) {
+            $sql .= ', email = :email';
+        }
+        if (!empty($data['password'])) {
+            $sql .= ', password = :password';
+        }
+        if (!empty($data['avatar'])) {
+            $sql .= ', avatar = :avatar';
+        }
+        $sql .= ' WHERE id = :id';
+
+        $this->db->query($sql);
 
         // Bind values/Привязка значений
         $this->db->bind(':id', $data['id']);
-        $this->db->bind(':username', $data['username']);
-        $this->db->bind(':email', $data['email']);
-        $this->db->bind(':password', $data['password']);
+        if (!empty($data['username'])) {
+            $this->db->bind(':username', $data['username']);
+        }
+        if (!empty($data['email'])) {
+            $this->db->bind(':email', $data['email']);
+        }
+        if (!empty($data['password'])) {
+            $this->db->bind(':password', $data['password']);
+        }
+        if (!empty($data['avatar'])) {
+            $this->db->bind(':avatar', $data['avatar']);
+        }
 
         // Execute/Выполнение
         if ($this->db->execute()) {
@@ -46,10 +70,10 @@ class User
     }
 
     // Login user/Авторизация пользователя
-    public function login($email, $password)
+    public function login($username, $password)
     {
-        $this->db->query('SELECT * FROM users WHERE email = :email');
-        $this->db->bind(':email', $email);
+        $this->db->query('SELECT * FROM users WHERE username = :username');
+        $this->db->bind(':username', $username);
 
         $row = $this->db->single();
 

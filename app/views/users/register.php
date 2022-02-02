@@ -1,4 +1,8 @@
 <?php require_once APPROOT . '/views/inc/header.php'; ?>
+<?php if (Users::isLoggedIn()) {
+    redirect('users/profile');
+}
+?>
 <div class="row">
     <div class="col-md-8 mx-auto">
         <div class="card card-body bg-light my-2">

@@ -15,7 +15,7 @@
                 <td><h5><?php echo h($post->title); ?></h5></td>
                 <td><?php echo h($post->description); ?></td>
                 <td><?php echo h($post->author); ?></td>
-                <td><?php echo h(date('H:i:s d-m-Y', $post->created_at)); ?></td>
+                <td><?php echo h($post->created_at); ?></td>
             </tr>
         <?php endforeach; ?>
     </table>
