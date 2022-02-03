@@ -1,24 +1,24 @@
 <?php require_once APPROOT . '/views/inc/header.php'; ?>
-
-<div>
-    <span class="text-center"><?php flash('success'); ?></span>
-    <h1>Posts</h1>
-    <table class="table table-hover table-sm">
-        <tr class="table-primary">
-            <th>Title</th>
-            <th>Description</th>
-            <th>Author</th>
-            <th>Created at</th>
-        </tr>
+    <div class="col-md-8 mx-auto mb-3">
+        <span class="text-center"><?php flash('success'); ?></span>
         <?php foreach ($data['posts'] as $post) : ?>
-            <tr class="table-light">
-                <td><h5><?php echo h($post->title); ?></h5></td>
-                <td><?php echo h($post->description); ?></td>
-                <td><?php echo h($post->author); ?></td>
-                <td><?php echo h($post->created_at); ?></td>
-            </tr>
+            <div class="card card-body bg-light my-2">
+                <h2 class="text-center"><strong>
+                        <a class="text-black-50" href="<?php echo URLROOT . '/posts/show/' . h($post->postId) . '">' . h($post->title); ?></a>
+                </strong></h2>
+                <p class="text-end fst-italic">
+                        Written by <?php echo h($post->username) . ' at ' . h($post->postCreated); ?>
+                </p>
+                <p><?php echo h($post->description); ?></p>
+                <?php if ($_SESSION['user_id'] == $post->user_id) : ?>
+                    <div class="row">
+                        <div class="col-3 ms-auto">
+                            <a href="<?php echo URLROOT . '/posts/edit/' . h($post->postId); ?>"
+                               class="btn btn-info col-12 text-nowrap">Edit or Delete Post >>></a>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            </div>
         <?php endforeach; ?>
-    </table>
-</div>
-
+    </div>
 <?php require_once APPROOT . '/views/inc/footer.php'; ?>

@@ -1,14 +1,11 @@
 <?php require_once APPROOT . '/views/inc/header.php'; ?>
-<?php if (!Users::isLoggedIn()) {
-    redirect('users/login');
-}
-?>
 <div class="container">
     <div class="col-md-8 mx-auto">
         <div class="card card-body bg-light my-2">
             <div class="text-center">
                 <span class="text-center"><?php flash('success'); ?></span>
-                <h2 class="mb-3">Hello, <?php echo $_SESSION['user_name']; ?>! You can edit your profile on this page!</h2>
+                <h2 class="mb-3">Hello, <?php echo $_SESSION['user_name']; ?>
+                    You can edit your profile on this page!</h2>
             </div>
             <form action="<?php echo URLROOT; ?>/users/profile" enctype="multipart/form-data" method="post">
                 <div class="d-lg-flex flex-row">
