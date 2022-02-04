@@ -4,7 +4,7 @@
 
     // Load Helpers
     require_once 'helpers/helper.php';
-    require_once 'helpers/session_helper.php';
+    require_once 'helpers/pagination.php';
 
     // Autoload Core Libraries/Автозагрузка основных библиотек
     spl_autoload_register(function ($className) {

@@ -120,4 +120,15 @@ class User
             return false;
         }
     }
+
+    // Find user by id/Находим пользователя по id
+    public function findUserById($id)
+    {
+        $this->db->query('SELECT * FROM users WHERE id = :id');
+
+        // Bind value/Привязка значения
+        $this->db->bind(':id', $id);
+
+        return $this->db->single();
+    }
 }

@@ -8,6 +8,12 @@ class Users extends Controller
 
     public function profile()
     {
+        // If user is not logged in - redirect to login page
+        // Если пользователь не авторизован - перенаправляем на страницу авторизации
+        if (!isLoggedIn()) {
+            redirect('users/login');
+        }
+
         // Check for POST/Проверка POST-запроса
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Process form/Обрабатываем форму
@@ -117,7 +123,7 @@ class Users extends Controller
 
                 if ((($_SESSION['user_name'] == $data['username']) || empty($data['username'])) &&
                     (($_SESSION['user_email'] == $data['email']) || empty($data['email'])) &&
-                    ((empty($data['password'])) || (!empty($data['password'])) && (empty($data['confirm_password'])) &&
+                    ((empty($data['password'])) || ((!empty($data['password'])) && (empty($data['confirm_password']))) &&
                     ($data['confirm_password_err'] = 'Please confirm new password')) &&
                     (empty($_FILES['avatar']['name']))) {
                     flash('success', 'No edits!');
@@ -157,6 +163,13 @@ class Users extends Controller
 
     public function register()
     {
+        // If user is logged in - redirect to profile page
+        // Если пользователь авторизован - перенаправляем на страницу профиля
+
+        if (isLoggedIn()) {
+            redirect('users/profile');
+        }
+
         // Check for POST/Проверка POST-запроса
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Process form/Обрабатываем форму
@@ -248,6 +261,12 @@ class Users extends Controller
 
     public function login()
     {
+        // If user is logged in - redirect to profile page
+        // Если пользователь авторизован - перенаправляем на страницу профиля
+        if (isLoggedIn()) {
+            redirect('users/profile');
+        }
+
         // Check for POST/Проверка POST-запроса
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Process form/Обрабатываем форму
@@ -331,14 +350,5 @@ class Users extends Controller
         unset($_SESSION['user_avatar']);
         session_destroy();
         redirect('users/login');
-    }
-
-    public function isLoggedIn()
-    {
-        if (isset($_SESSION['user_id'])) {
-            return true;
-        } else {
-            return false;
-        }
     }
 }

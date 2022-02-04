@@ -89,4 +89,11 @@ class Database
     {
         return $this->stmt->rowCount();
     }
+
+    // Get row count/Получаем кол-во строк
+    public function count()
+    {
+        $this->execute();
+        return $this->stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }
