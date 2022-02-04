@@ -123,7 +123,7 @@ class Users extends Controller
 
                 if ((($_SESSION['user_name'] == $data['username']) || empty($data['username'])) &&
                     (($_SESSION['user_email'] == $data['email']) || empty($data['email'])) &&
-                    ((empty($data['password'])) || (!empty($data['password'])) && (empty($data['confirm_password'])) &&
+                    ((empty($data['password'])) || ((!empty($data['password'])) && (empty($data['confirm_password']))) &&
                     ($data['confirm_password_err'] = 'Please confirm new password')) &&
                     (empty($_FILES['avatar']['name']))) {
                     flash('success', 'No edits!');

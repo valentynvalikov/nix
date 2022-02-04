@@ -40,7 +40,12 @@ function isLoggedIn()
     }
 }
 
-function h($chars)
+function h($chars = "")
 {
     return htmlspecialchars($chars);
+}
+
+function u($chars = "")
+{
+    return urlencode($chars);
 }

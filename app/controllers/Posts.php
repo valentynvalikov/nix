@@ -7,11 +7,14 @@
     }
 
     // Display all posts at home page/Отображение всех постов на главной странице
-    public function index()
+    public function index($page = 1)
     {
-        $posts = $this->postModel->getPosts();
+        $posts = $this->postModel->getPosts($page);
 
-        $data = ['posts' => $posts];
+        $count = $this->postModel->count();
+
+        $data = ['posts' => $posts,
+            'count' => $count];
 
         $this->view('posts/index', $data);
     }
@@ -117,7 +120,7 @@
             // Init data/Инициализируем данные
             $data = [
                 'post' => $post,
-                'id' => trim($id),
+                'id' => $id,
                 'user_id' => trim($_SESSION['user_id']),
                 'title' => trim($_POST['title']),
                 'description' => trim($_POST['description']),

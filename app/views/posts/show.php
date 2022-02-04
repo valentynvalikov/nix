@@ -9,11 +9,11 @@
             <p><?php echo h($data['post']->description); ?></p>
             <?php if ($_SESSION['user_id'] == $data['post']->user_id) : ?>
             <div class="row">
-                <div class="col-3 me-auto">
+                <div class="col-lg-4 col-6 me-auto">
                     <a href="<?php echo URLROOT . '/posts/edit/' . h($data['post']->id); ?>"
                        class="btn btn-success col-12">Edit Post</a>
                 </div>
-                <div class="col-2 ms-auto">
+                <div class="col-lg-3 col-6 ms-auto">
                     <a data-bs-toggle="modal" data-bs-target="#exampleModal"
                        class="btn btn-danger col-12">Delete</a>
                 </div>

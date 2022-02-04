@@ -23,7 +23,7 @@
             </div>
             <div class="navbar-nav ms-auto my-auto">
                 <?php if (isset($_SESSION['user_id'])) : ?>
-                    <a class="btn btn-outline-secondary nav-item nav-link my-auto me-5 text-nowrap"
+                    <a class="btn btn-outline-secondary nav-item nav-link my-auto text-nowrap"
                        href="<?php echo URLROOT; ?>/posts/add">Create a Post</a>
                     <a class="nav-item nav-link my-auto text-nowrap" href="<?php echo URLROOT; ?>/users/profile">
                         <img class="rounded" src="<?php if (!empty($_SESSION['user_avatar'])) {

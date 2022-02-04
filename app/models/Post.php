@@ -8,12 +8,22 @@ class Post
         $this->db = new Database;
     }
 
-    // Get all posts/Получаем все посты
-    public function getPosts()
+    public function count()
     {
+        $this->db->query("SELECT COUNT(*) FROM posts");
+
+        return $this->db->count();
+    }
+
+    // Get all posts/Получаем все посты
+    public function getPosts($page)
+    {
+        $page = ($page - 1) * 5;
+
         $this->db->query("SELECT *, posts.id as postId, users.id as userId,
                               posts.created_at as postCreated, users.created_at as userCreated FROM posts
-                              INNER JOIN users ON posts.user_id = users.id ORDER BY posts.created_at DESC");
+                              INNER JOIN users ON posts.user_id = users.id ORDER BY posts.created_at DESC
+                              LIMIT 5 OFFSET {$page}");
 
         return $this->db->resultSet();
     }
