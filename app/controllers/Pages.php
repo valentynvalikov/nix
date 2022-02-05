@@ -5,8 +5,16 @@
         $this->pageModel = $this->model('Page');
     }
 
-    public function lesson($id)
+    public function index()
     {
+        redirect('');
+    }
+
+    public function lesson($id = 1)
+    {
+        if (empty($id)) {
+            redirect('');
+        }
         $page = $this->pageModel->getPageById($id);
 
         $data = ['page' => $page];

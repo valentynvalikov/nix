@@ -1,7 +1,4 @@
-<?php
-
-
-class Pagination
+<?php class Pagination
 {
     public $current_page;
     public $per_page;
@@ -28,6 +25,7 @@ class Pagination
     {
         return $this->current_page - 1;
     }
+
 
     public function nextPage()
     {

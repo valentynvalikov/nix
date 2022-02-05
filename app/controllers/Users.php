@@ -6,6 +6,11 @@ class Users extends Controller
         $this->userModel = $this->model('User');
     }
 
+    public function index()
+    {
+        redirect('users/profile');
+    }
+
     public function profile()
     {
         // If user is not logged in - redirect to login page

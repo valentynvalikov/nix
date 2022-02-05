@@ -9,6 +9,9 @@
     // Display all posts at home page/Отображение всех постов на главной странице
     public function index($page = 1)
     {
+        if (preg_match('/[A-z0]/', $page)) {
+            redirect('');
+        }
         $posts = $this->postModel->getPosts($page);
 
         $count = $this->postModel->count();
@@ -20,7 +23,7 @@
     }
 
     // Display single post/Отображение одного поста
-    public function show($id)
+    public function show($id = 1)
     {
         $post = $this->postModel->getPostById($id);
         $user = $this->userModel->findUserById($post->user_id);
@@ -101,7 +104,7 @@
     }
 
     // Edit post/Редактирование поста
-    public function edit($id)
+    public function edit($id = 1)
     {
         $post = $this->postModel->getPostById($id);
 
@@ -165,7 +168,7 @@
     }
 
     // Delete post/Удаление поста
-    public function delete($id)
+    public function delete($id = 1)
     {
         $post = $this->postModel->getPostById($id);
         if ($_SESSION['user_id'] == $post->user_id) {
