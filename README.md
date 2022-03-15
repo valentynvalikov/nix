@@ -1,4 +1,4 @@
 # nix
 NIX Education
 
-http://silhy.testv2.testforhost.com/
+http://silhy.testv2.testforhost.com/nix/
