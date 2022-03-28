@@ -1,4 +1,8 @@
-<?php class Pagination
+<?php
+
+namespace dnarna;
+
+class Pagination
 {
     public $current_page;
     public $per_page;

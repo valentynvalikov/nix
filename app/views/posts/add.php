@@ -11,7 +11,7 @@
                 </div>
                 <div class="form-group pb-3">
                     <label for="description"><strong>Enter post content: <sup>*</sup></strong></label>
-                    <textarea name="description" class="form-control form-control-lg"><?php
+                    <textarea name="description" class="form-control form-control-lg" rows="7"><?php
                         echo $data['description']; ?></textarea>
                     <span class="text-white bg-danger"><?php echo $data['description_err']; ?></span>
                 </div>

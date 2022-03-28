@@ -6,7 +6,7 @@
             <p class="text-end fst-italic">
                 Written by <?php echo h($data['user']->username) . ' at ' . h($data['post']->created_at); ?>
             </p>
-            <p><?php echo h($data['post']->description); ?></p>
+            <p style="white-space: pre"><?php echo s($data['post']->description); ?></p>
             <?php if ($_SESSION['user_id'] == $data['post']->user_id) : ?>
             <div class="row">
                 <div class="col-lg-4 col-6 me-auto">

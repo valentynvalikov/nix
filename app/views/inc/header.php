@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" id="html-content-holder">
 <head>
     <title><?php echo SITENAME; ?></title>
     <meta charset="utf-8">
@@ -8,9 +8,8 @@
     <link rel="stylesheet" media="all" href="<?php echo URLROOT; ?>/css/bootstrap.css" />
     <link rel="stylesheet" media="all" href="<?php echo URLROOT; ?>/css/style.css" />
 </head>
-<body>
-<header class="pb-2">
+<body id="wrap">
+<header class="mb-3">
     <?php require_once APPROOT . '/views/inc/nav.php'; ?>
 </header>
-
-<div class="container">
+<div class="container pb-5">

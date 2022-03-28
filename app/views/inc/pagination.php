@@ -4,7 +4,7 @@ if (empty($_GET['url'])) {
 } else {
     $page = $_GET['url'];
 }
-$pagination = new Pagination($page, 5, $data['count']['COUNT(*)']);
+$pagination = new \dnarna\Pagination($page, 5, $data['count']['COUNT(*)']);
 ?>
 <div id="pagination">
     <ul class="pagination">

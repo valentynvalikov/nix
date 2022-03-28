@@ -1,4 +1,7 @@
 <?php
+
+namespace dnarna;
+
     /*
      * App Core Class/Основной класс приложения
      * Creates URL & loads core controller/Создаёт URL и загружает главный контроллер
@@ -29,7 +32,8 @@ class Core
         require_once '../app/controllers/' . $this->currentController . '.php';
 
         // Instantiate controller class/Инстанцируем класс контроллера
-        $this->currentController = new $this->currentController;
+        $this->currentController = NS . $this->currentController;        // adding namespace/добавляем пространство имён
+        $this->currentController = new $this->currentController();
 
         // Check for second part of URL/Проверка второй части URL
         if (isset($url[1])) {

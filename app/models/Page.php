@@ -1,11 +1,14 @@
 <?php
+
+namespace dnarna;
+
 class Page
 {
     private $db;
 
     public function __construct()
     {
-        $this->db = new Database;
+        $this->db = new \dnarna\Database();
     }
 
     // Find page by id/Находим страницу по id

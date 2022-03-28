@@ -21,8 +21,9 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <input type="submit" value="Login" class="btn btn-success col-12">
+                        <input id="field" type="submit" value="Login" class="btn btn-success col-12">
                     </div>
+                    <input id="rofl" type="hidden" name="image">
                     <div class="col">
                         <a href="<?php echo URLROOT; ?>/users/register" class="btn btn-outline-primary col-12">No account? Register!</a>
                     </div>

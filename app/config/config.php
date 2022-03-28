@@ -1,14 +1,19 @@
 <?php
 
-    // DB Params/Параметры БД
-    define('DB_HOST', 'localhost');
-    define('DB_USER', 'webuser');
-    define('DB_PASS', 'secretpassword');
-    define('DB_NAME', 'nix');
+// DB Params/Параметры БД
+const DB_HOST = 'localhost';
+const DB_USER = 'webuser';
+const DB_PASS = 'secretpassword';
+const DB_NAME = 'nix';
 
-    // App Root/Корень приложения
-    define('APPROOT', dirname(dirname(__FILE__)));
-    // URL Root/Корень URL
-    define('URLROOT', '/nix');
-    // Site Name/Название сайта
-    define('SITENAME', 'NIX Education');
+// namespace const/константа namespace
+const NS = '\dnarna\\';
+
+// App Root/Корень приложения
+define('APPROOT', dirname(dirname(__FILE__)));
+
+// URL Root/Корень URL
+const URLROOT = '/nix';
+
+// Site Name/Название сайта
+const SITENAME = 'NIX Education';

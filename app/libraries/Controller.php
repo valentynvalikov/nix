@@ -1,4 +1,7 @@
 <?php
+
+namespace dnarna;
+
     /*
      * Base  Controller/Основной контроллер
      * Loads models and views/Загружает модели и отображения (виды)
@@ -13,6 +16,7 @@ class Controller
         require_once '../app/models/' . $model . '.php';
 
         // Instantiate model/Инстанцируем модель
+        $model = NS . $model;                                            // adding namespace/добавляем пространство имён
         return new $model();
     }
 

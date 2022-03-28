@@ -1,4 +1,8 @@
-<?php class Posts extends Controller
+<?php
+
+namespace dnarna;
+
+class Posts extends Controller
 {
     public function __construct()
     {
@@ -50,7 +54,7 @@
             // Process form/Обрабатываем форму
 
             // Sanitize POST data/Санируем Post-данные
-            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            //$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
             // Init data/Инициализируем данные
             $data = [
@@ -118,7 +122,7 @@
             // Process form/Обрабатываем форму
 
             // Sanitize POST data/Санируем Post-данные
-            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            //$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
             // Init data/Инициализируем данные
             $data = [

@@ -1,11 +1,14 @@
 <?php
+
+namespace dnarna;
+
 class User
 {
     private $db;
 
     public function __construct()
     {
-        $this->db = new Database;
+        $this->db = new \dnarna\Database();
     }
 
     // Profile update/Обновление профиля

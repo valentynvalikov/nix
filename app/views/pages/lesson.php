@@ -2,4 +2,4 @@
 
 <?php eval($data['page']->content); ?>
 
-<?php require APPROOT . '/views/inc/footer.php';
+<?php require APPROOT . '/views/inc/footer.php'; ?>

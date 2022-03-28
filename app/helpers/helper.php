@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 
 // Flash messages/Уведомления
@@ -48,4 +49,9 @@ function h($chars = "")
 function u($chars = "")
 {
     return urlencode($chars);
+}
+
+function s($chars = "")
+{
+    return strip_tags($chars,  '<iframe><div>');
 }

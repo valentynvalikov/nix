@@ -1,4 +1,6 @@
-<?php require_once '../app/bootstrap.php';
+<?php
+
+require_once '../app/bootstrap.php';
 
     // Init Core Library/Инициализация главной библиотеки
-    $init = new Core;
+    $init = new \dnarna\Core();
