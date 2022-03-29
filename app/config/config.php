@@ -7,7 +7,7 @@ const DB_PASS = 'secretpassword';
 const DB_NAME = 'nix';
 
 // namespace const/константа namespace
-const NS = '\dnarna\\';
+const NS = '\dnarna\';
 
 // App Root/Корень приложения
 define('APPROOT', dirname(dirname(__FILE__)));

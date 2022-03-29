@@ -1,4 +1,4 @@
 .idea
+app/config/
 public/img/
 !public/img/placeholder.png
-app/config/config.php
