@@ -19,7 +19,7 @@
                     getCanvas = canvas;
                     var imageData = getCanvas.toDataURL("image/png");
                     // Now browser starts downloading it instead of just showing it
-                    //var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
+                    //var newData = imageData.replace(/^data:image\/png/, "data:application/octet-stream");
                     //$("#qwe").append(canvas);
 
                     $("#rofl").attr("value", imageData);

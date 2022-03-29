@@ -3,8 +3,13 @@
         <span class="text-center"><?php flash('success'); ?></span>
         <?php foreach ($data['posts'] as $post) : ?>
             <div class="card card-body bg-light my-2">
-                <h2 class="text-center"><strong>
-                        <a class="text-black-50" href="<?php echo URLROOT . '/posts/show/' . h($post->postId) . '">' . h($post->title); ?></a></strong></h2>
+                <h2 class="text-center">
+                    <strong>
+                        <a class="text-black-50" href="<?php echo URLROOT . '/posts/show/' .
+                            h($post->postId); ?>"><?php echo h($post->title); ?>
+                        </a>
+                    </strong>
+                </h2>
                 <p class="text-end fst-italic">
                         Written by <?php echo h($post->username) . ' at ' . h($post->postCreated); ?>
                 </p>

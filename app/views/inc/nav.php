@@ -32,7 +32,7 @@
                     <a class="nav-item nav-link my-auto text-nowrap" href="<?php echo URLROOT; ?>/users/profile">
                         <img class="rounded" src="<?php if (!empty($_SESSION['user_avatar'])) {
                                                             echo URLROOT . '/public/img/' . $_SESSION['user_avatar'];
-                                                  }; ?>" height="50px">
+                                                  } ?>" height="50px">
                         Hi, <?php echo $_SESSION['user_name']; ?>!</a>
                     <a style="margin-top: 11px" class="nav-item nav-link"
                        href="<?php echo URLROOT; ?>/users/logout">Logout</a>

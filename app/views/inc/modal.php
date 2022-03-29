@@ -18,7 +18,7 @@
                                 echo $data['post']->id;
                         } else {
                                 echo $post->postId;
-                        }; ?>">Delete Post</a>
+                        } ?>">Delete Post</a>
                 </button>
             </div>
         </div>

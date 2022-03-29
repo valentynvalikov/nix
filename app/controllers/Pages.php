@@ -44,7 +44,6 @@ class Pages extends Controller
                 'value5' => trim($_POST['value5']),
                 'value6' => trim($_POST['value6'])
             ];
-            $this->view('pages/test', $data);
         } else {
             $data = [
                 'value1' => '',
@@ -54,7 +53,7 @@ class Pages extends Controller
                 'value5' => '',
                 'value6' => ''
             ];
-            $this->view('pages/test', $data);
         }
+        $this->view('pages/test', $data);
     }
 }

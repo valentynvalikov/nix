@@ -8,7 +8,7 @@ namespace dnarna;
      * URL FORMAT/ФОРМАТ URL - /controller/method/params
      */
 
-error_reporting(E_ERROR | E_PARSE | E_NOTICE);
+
 
 class Core
 {
@@ -18,6 +18,8 @@ class Core
 
     public function __construct()
     {
+        error_reporting(E_ERROR | E_PARSE | E_NOTICE);
+        session_start();
         $url = $this->getUrl();
 
         // Look in controllers for first value/Смотрим в контроллерах первое значение

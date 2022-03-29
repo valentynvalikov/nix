@@ -25,7 +25,9 @@
                     </div>
                     <input id="rofl" type="hidden" name="image">
                     <div class="col">
-                        <a href="<?php echo URLROOT; ?>/users/register" class="btn btn-outline-primary col-12">No account? Register!</a>
+                        <a href="<?php echo URLROOT; ?>/users/register" class="btn btn-outline-primary col-12">
+                            No account? Register!
+                        </a>
                     </div>
                 </div>
             </form>

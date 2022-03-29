@@ -40,7 +40,9 @@
                         <input type="submit" value="Register" class="btn btn-success col-12">
                     </div>
                     <div class="col">
-                        <a href="<?php echo URLROOT; ?>/users/login" class="btn btn-outline-primary col-12">Have account? Login!</a>
+                        <a href="<?php echo URLROOT; ?>/users/login" class="btn btn-outline-primary col-12">
+                            Have account? Login!
+                        </a>
                     </div>
                 </div>
             </form>
