@@ -4,7 +4,8 @@
     require_once 'config/config.php';
 
     // Load Helpers
-    require_once 'helpers/helper.php';
+    require_once 'helpers/helpers.php';
+    //require_once 'helpers/pagin.php';
     require_once 'helpers/pagination.php';
 
     // Autoload Core Libraries/Автозагрузка основных библиотек

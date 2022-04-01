@@ -4,45 +4,39 @@ namespace dnarna;
 
 class Pagination
 {
-    public $current_page;
-    public $per_page;
-    public $total_count;
-
-    public function __construct($page = 1, $per_page = 5, $total_count = 0)
+    public function drawPager($totalItems, $perPage)
     {
-        $this->current_page = (int)$page;
-        $this->per_page = (int)$per_page;
-        $this->total_count = (int)$total_count;
-    }
+        $pages = ceil($totalItems / $perPage);
 
-    public function offset()
-    {
-        return ($this->current_page - 1) * $this->per_page;
-    }
-
-    public function totalPages()
-    {
-        return ceil($this->total_count / $this->per_page);
-    }
-
-    public function previousPage()
-    {
-        return $this->current_page - 1;
-    }
-
-
-    public function nextPage()
-    {
-        return $this->current_page + 1;
-    }
-
-    public function hasPreviousPage()
-    {
-        return $this->previousPage() >= 1 ? true : false;
-    }
-
-    public function hasNextPage()
-    {
-        return $this->nextPage() <= $this->totalPages() ? true : false;
+        if (!isset($_GET['url']) || intval($_GET['url']) == 0) {
+            $pageNumber = 1;
+        } elseif (intval($_GET['url']) > $pages) {
+            redirect($pages);
+        } else {
+            $pageNumber = intval($_GET['url']);
+        }
+        $pager =  "<div id='pagination'>";
+        $pager .= "<ul class='pagination'>";
+        $pager .= "<li class='page-item text-nowrap";
+        if (empty($_GET['url']) || $_GET['url'] == 1) {
+            $pager .= " disabled";
+        }
+        $pager .= "'><a class='page-link text-nowrap' href='" .
+            $pageNumber - 1 . "'>&laquo; Prev</a></li>";
+        for ($i = 1; $i <= $pages; $i++) {
+            $pager .= "<li class='page-item";
+            if ($i == $pageNumber) {
+                $pager .= " active";
+            }
+            $pager .= "'><a class='page-link text-nowrap' href='" . $i . "'>" . $i . "</a></li>";
+        }
+        $pager .= "<li class='page-item text-nowrap";
+        if (intval($_GET['url']) == $pages) {
+            $pager .= " disabled";
+        }
+        $pager .= "'><a class='page-link text-nowrap' href='" .
+            $pageNumber + 1 . "'>Next &raquo;</a></li>";
+        $pager .= "</ul>";
+        return $pager;
     }
 }

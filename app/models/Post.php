@@ -6,6 +6,7 @@ class Post
 {
     private $db;
 
+
     public function __construct()
     {
         $this->db = new \dnarna\Database();
@@ -19,15 +20,24 @@ class Post
     }
 
     // Get all posts/Получаем все посты
-    public function getPosts($page)
+    public function getPosts()
     {
-        $page = ($page - 1) * 5;
-        $limit = 5;
+        $this->db->query("SELECT *, posts.id as postId, users.id as userId,
+                              posts.created_at as postCreated, users.created_at as userCreated FROM posts
+                              INNER JOIN users ON posts.user_id = users.id ORDER BY posts.created_at DESC");
+
+        return $this->db->resultSet();
+    }
+
+    // Get paginated posts/Получаем посты для пагинации
+    public function getPagePosts($pageNumber, $limit)
+    {
+        $offset = ($pageNumber - 1) * $limit;
 
         $this->db->query("SELECT *, posts.id as postId, users.id as userId,
                               posts.created_at as postCreated, users.created_at as userCreated FROM posts
                               INNER JOIN users ON posts.user_id = users.id ORDER BY posts.created_at DESC
-                              LIMIT $limit OFFSET $page");
+                              LIMIT $limit OFFSET $offset");
 
         return $this->db->resultSet();
     }

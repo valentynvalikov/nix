@@ -1,7 +1,7 @@
 <?php require_once APPROOT . '/views/inc/header.php'; ?>
     <div class="col-lg-8 mx-auto mb-3">
         <span class="text-center"><?php flash('success'); ?></span>
-        <?php foreach ($data['posts'] as $post) : ?>
+        <?php foreach ($data['pagePosts'] as $post) : ?>
             <div class="card card-body bg-light my-2">
                 <h2 class="text-center">
                     <strong>
@@ -28,6 +28,6 @@
                 </div>
             </div>
         <?php endforeach; ?>
-        <?php require_once APPROOT . '/views/inc/pagination.php'; ?>
+        <?php echo $data['pagination']; ?>
     </div>
 <?php require_once APPROOT . '/views/inc/footer.php'; ?>

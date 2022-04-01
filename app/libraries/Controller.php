@@ -30,4 +30,16 @@ class Controller
             redirect('');
         }
     }
+
+//    // Load pagination/Загрузка пагинации
+//    public function pagination()
+//    {
+//        // Check for view file/Проверяем, есть ли файл отображения (вида)
+//        if (file_exists('../app/helpers/pagination.php')) {
+//            require_once '../app/helpers/pagination.php';
+//            //$pagination = new \dnarna\Pagination($page, 5, $data['count']['COUNT(*)']);
+//        } else {
+//            redirect('');
+//        }
+//    }
 }

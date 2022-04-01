@@ -9,7 +9,6 @@ namespace dnarna;
      */
 
 
-
 class Core
 {
     protected $currentController = 'Posts';

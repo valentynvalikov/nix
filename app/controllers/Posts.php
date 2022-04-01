@@ -4,24 +4,36 @@ namespace dnarna;
 
 class Posts extends Controller
 {
+    private $postsPerPage = 5;
+
     public function __construct()
     {
         $this->postModel = $this->model('Post');
         $this->userModel = $this->model('User');
+        $this->pagination = new \dnarna\Pagination();
     }
 
     // Display all posts at home page/Отображение всех постов на главной странице
-    public function index($page = 1)
+    public function index($pageNumber = 1)
     {
-        if (preg_match('/[A-z0]/', $page)) {
+
+        if (preg_match('/[A-z0]/', $pageNumber)) {
             redirect('');
         }
-        $posts = $this->postModel->getPosts($page);
+
+        $allPosts = count($this->postModel->getPosts());
+
+        $limit = 5;
+
+        $pagination = $this->pagination->drawPager($allPosts, $this->postsPerPage);
+
+        $pagePosts = $this->postModel->getPagePosts($pageNumber, $limit);
 
         $count = $this->postModel->count();
 
-        $data = ['posts' => $posts,
-            'count' => $count];
+        $data = ['pagePosts' => $pagePosts,
+            'count' => $count,
+            'pagination' => $pagination];
 
         $this->view('posts/index', $data);
     }
