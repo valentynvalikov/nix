@@ -4,12 +4,14 @@ namespace dnarna;
 
 class Pagination
 {
-    public function drawPager($totalItems, $perPage)
+    public function drawPager($allPosts, $perPage)
     {
-        $pages = ceil($totalItems / $perPage);
+        $pages = ceil($allPosts / $perPage);
 
-        if (!isset($_GET['url']) || intval($_GET['url']) == 0) {
+        if (!isset($_GET['url'])) {
             $pageNumber = 1;
+        } elseif (preg_match('/[A-zА-я0]/', $_GET['url'])) {
+            redirect('');
         } elseif (intval($_GET['url']) > $pages) {
             redirect($pages);
         } else {

@@ -16,24 +16,16 @@ class Posts extends Controller
     // Display all posts at home page/Отображение всех постов на главной странице
     public function index($pageNumber = 1)
     {
-
-        if (preg_match('/[A-z0]/', $pageNumber)) {
-            redirect('');
-        }
-
         $allPosts = count($this->postModel->getPosts());
-
-        $limit = 5;
 
         $pagination = $this->pagination->drawPager($allPosts, $this->postsPerPage);
 
-        $pagePosts = $this->postModel->getPagePosts($pageNumber, $limit);
+        $pagePosts = $this->postModel->getPagePosts($pageNumber, $this->postsPerPage);
 
-        $count = $this->postModel->count();
-
-        $data = ['pagePosts' => $pagePosts,
-            'count' => $count,
-            'pagination' => $pagination];
+        $data = [
+            'pagePosts' => $pagePosts,
+            'pagination' => $pagination
+        ];
 
         $this->view('posts/index', $data);
     }
@@ -47,7 +39,7 @@ class Posts extends Controller
         $data = [
             'post' => $post,
             'user' => $user
-            ];
+        ];
 
         $this->view('posts/show', $data);
     }
