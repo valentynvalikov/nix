@@ -17,7 +17,7 @@ class Core
 
     public function __construct()
     {
-        error_reporting(E_ERROR | E_PARSE | E_NOTICE);
+        //error_reporting(E_ERROR | E_PARSE | E_NOTICE);
         session_start();
         $url = $this->getUrl();
 
@@ -61,7 +61,9 @@ class Core
             $url = rtrim($_GET['url'], '/');
             $url = filter_var($url, FILTER_SANITIZE_URL);
             $url = explode('/', $url);
+            print_r($url);
             return $url;
         }
+        return null;
     }
 }
