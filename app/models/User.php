@@ -1,6 +1,8 @@
 <?php
 
-namespace dnarna;
+namespace app\models;
+
+use app\libraries\Database;
 
 class User
 {
@@ -8,7 +10,7 @@ class User
 
     public function __construct()
     {
-        $this->db = new \dnarna\Database();
+        $this->db = new Database();
     }
 
     // Profile update/Обновление профиля

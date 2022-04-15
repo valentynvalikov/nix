@@ -1,6 +1,10 @@
 <?php
 
-namespace dnarna;
+namespace app\controllers;
+
+use app\models\Post;
+use app\models\User;
+use app\helpers\Pagination;
 
 class Posts extends Controller
 {
@@ -8,9 +12,9 @@ class Posts extends Controller
 
     public function __construct()
     {
-        $this->postModel = $this->model('Post');
-        $this->userModel = $this->model('User');
-        $this->pagination = new \dnarna\Pagination();
+        $this->postModel = new Post();
+        $this->userModel = new User();
+        $this->pagination = new Pagination();
     }
 
     // Display all posts at home page/Отображение всех постов на главной странице

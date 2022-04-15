@@ -1,7 +1,5 @@
 <?php
 
-//session_start(); // moved to __construct in Core.php/перенёс в __construct в Core.php
-
 // Flash messages/Уведомления
 // Example/Пример - flash('register_success', 'You are now registered', 'alert alert-danger')
 // Display in view/Отобразить в представлении - echo flash('register_success');

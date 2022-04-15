@@ -1,6 +1,6 @@
 <?php
 
-namespace dnarna;
+namespace app\libraries;
 
     /*
      * PDO Database Class/Класс базы данных с использованием PDO

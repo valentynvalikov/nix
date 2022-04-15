@@ -1,6 +1,8 @@
 <?php
 
-namespace dnarna;
+namespace app\models;
+
+use app\libraries\Database;
 
 class Page
 {
@@ -8,7 +10,7 @@ class Page
 
     public function __construct()
     {
-        $this->db = new \dnarna\Database();
+        $this->db = new Database();
     }
 
     // Find page by id/Находим страницу по id

@@ -1,12 +1,14 @@
 <?php
 
-namespace dnarna;
+namespace app\controllers;
+
+use app\models\User;
 
 class Users extends Controller
 {
     public function __construct()
     {
-        $this->userModel = $this->model('User');
+        $this->userModel = new User();
     }
 
     public function index()

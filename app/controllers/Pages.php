@@ -1,12 +1,14 @@
 <?php
 
-namespace dnarna;
+namespace app\controllers;
+
+use app\models\Page;
 
 class Pages extends Controller
 {
     public function __construct()
     {
-        $this->pageModel = $this->model('Page');
+        $this->pageModel = new Page();
     }
 
     public function index()

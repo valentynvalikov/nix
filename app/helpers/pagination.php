@@ -1,6 +1,6 @@
 <?php
 
-namespace dnarna;
+namespace app\helpers;
 
 class Pagination
 {
@@ -33,7 +33,7 @@ class Pagination
             $pager .= "'><a class='page-link text-nowrap' href='" . $i . "'>" . $i . "</a></li>";
         }
         $pager .= "<li class='page-item text-nowrap";
-        if (intval($_GET['url']) == $pages) {
+        if (isset($_GET['url']) && intval($_GET['url']) == $pages) {
             $pager .= " disabled";
         }
         $pager .= "'><a class='page-link text-nowrap' href='" .

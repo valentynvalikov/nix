@@ -6,11 +6,10 @@ const DB_USER = 'db_user_here';
 const DB_PASS = 'db_password_here';
 const DB_NAME = 'db_name_here';
 
-// namespace const/константа namespace
-const NS = '\dnarna\\';
 
 // App Root/Корень приложения
 define('APPROOT', dirname(dirname(__FILE__)));
+
 
 // URL Root/Корень URL
 const URLROOT = '';    // add "/url" if the url root has to be like "google.com/url"

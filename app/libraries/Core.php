@@ -1,13 +1,12 @@
 <?php
 
-namespace dnarna;
+namespace app\libraries;
 
     /*
      * App Core Class/Основной класс приложения
      * Creates URL & loads core controller/Создаёт URL и загружает главный контроллер
      * URL FORMAT/ФОРМАТ URL - /controller/method/params
      */
-
 
 class Core
 {
@@ -33,7 +32,8 @@ class Core
         require_once '../app/controllers/' . $this->currentController . '.php';
 
         // Instantiate controller class/Инстанцируем класс контроллера
-        $this->currentController = NS . $this->currentController;        // adding namespace/добавляем пространство имён
+        $this->currentController = 'app\controllers\\' . $this->currentController; // adding namespace
+                                                                                   // добавляем пространство имён
         $this->currentController = new $this->currentController();
 
         // Check for second part of URL/Проверка второй части URL
@@ -61,9 +61,9 @@ class Core
             $url = rtrim($_GET['url'], '/');
             $url = filter_var($url, FILTER_SANITIZE_URL);
             $url = explode('/', $url);
-            print_r($url);
             return $url;
         }
-        return null;
+        $url = [0 => 1];
+        return $url;
     }
 }
